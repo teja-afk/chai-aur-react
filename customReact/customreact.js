@@ -7,10 +7,11 @@ function customRender(reactElement, container){
     container.appendChild(domElement)*/
 
     const domElement = document.createElement(reactElement.type)
-    for (const prop in props) {
-        if(prop === children) continue;
-        domElement.setAttribute(prop, reactElement.props[prop])
-    }
+    domElement.innerHTML = reactElement.children
+   for (const prop in props) {
+        if(props === 'children') continue;
+        domElement.setAttribute(prop, reactElement.props[prop]);
+   }
     container.appendChild(domElement)
 }
 
@@ -22,7 +23,6 @@ const reactElement = {
     },
     children: 'Click me to visit google'
 }
-
 
 
 const mainContainer = document.querySelector('#root')
